@@ -1,7 +1,7 @@
 files = list.files(pattern="atp_matches_[^_]*.csv")
 
 matches_raw= do.call("rbind", lapply(files, function(x) read.csv(x, sep=",")))
-matches <- matches_raw[c("winner_name","loser_name","tourney_level","tourney_date","match_num")]
+matches <- matches_raw[c("winner_id","loser_id","tourney_level","tourney_date","match_num")]
 firstDate <- as.Date("1900-01-01")
 matches$tourney_date <- as.Date(as.character(matches$tourney_date),format='%Y%m%d', origin = "1900/01/01")
 
